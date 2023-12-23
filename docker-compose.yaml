@@ -1,7 +1,7 @@
 services:
-  medlibre-gpt:
-    container_name: medlibre-gpt
-    image: medlibre-gpt
+  medlibreGPT:
+    container_name: medlibreGPT
+    image: medlibreGPT
     build:
       dockerfile: Dockerfile.local
     volumes:
