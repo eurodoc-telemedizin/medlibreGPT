@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "medlibre-gpt"
+name = "private-gpt"
 version = "0.1.0"
 description = "Medlibre GPT forked from PrivateGPT"
 authors = ["Zylon <hi@zylon.ai>"]
