@@ -5,8 +5,8 @@ services:
     build:
       dockerfile: Dockerfile.local
     volumes:
-      - ./local_data/:/home/worker/app/local_data
-      - ./models/:/home/worker/app/models
+      - ./local_data/:/home/app/local_data
+      - ./models/:/home/app/models
     ports:
       - 8001:8080
     environment:
