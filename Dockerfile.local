@@ -20,7 +20,6 @@ RUN apt update && apt install -y \
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 
 FROM base as dependencies
-#WORKDIR /home/worker/app
 WORKDIR /home/app
 COPY pyproject.toml poetry.lock ./
 
@@ -34,8 +33,6 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Prepare a non-root user
-#RUN adduser worker
-#WORKDIR /home/worker/app
 WORKDIR /home/app
 
 RUN mkdir local_data;
@@ -45,6 +42,4 @@ COPY  private_gpt/ private_gpt
 COPY  fern/ fern
 COPY  *.yaml *.md ./
 
-
-USER worker
 ENTRYPOINT .venv/bin/python -m private_gpt
