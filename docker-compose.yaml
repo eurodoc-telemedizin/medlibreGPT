@@ -2,7 +2,7 @@ services:
   medlibreGPT:
     container_name: medlibre-gpt
     image: medlibre-gpt
-    command: tail -F anything
+    tty: true
     build:
       dockerfile: Dockerfile.local
     volumes:
