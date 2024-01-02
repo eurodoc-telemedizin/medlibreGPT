@@ -39,7 +39,7 @@ ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 FROM base as dependencies
 ############################################
 
-WORKDIR /home/worker/app
+WORKDIR /home/app
 COPY pyproject.toml poetry.lock ./
 
 RUN poetry install --with local
@@ -58,18 +58,18 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Prepare a non-root user
-RUN adduser worker
-WORKDIR /home/worker/app
 
-RUN mkdir -p local_data; chown -R worker local_data
-RUN mkdir -p models; chown -R worker models
-COPY --chown=worker --from=dependencies /home/worker/app/.venv/ .venv
-COPY --chown=worker private_gpt/ private_gpt
-COPY --chown=worker fern/ fern
-COPY --chown=worker *.yaml *.md ./
+WORKDIR /home/app
+
+RUN mkdir -p local_data;
+RUN mkdir -p models;
+COPY  --from=dependencies /home/app/.venv/ .venv
+COPY  private_gpt/ private_gpt
+COPY  fern/ fern
+COPY  *.yaml *.md ./
 
 # Copy the entry point script into the container and make it executable
-COPY --chown=worker entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Set the entry point script to be executed when the container starts
