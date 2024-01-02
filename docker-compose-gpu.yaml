@@ -16,7 +16,7 @@ services:
       - ./local_data/:/home/app/local_data
       - ./models/:/home/app/models
     ports:
-      - 7001:8080
+      - 8001:8080
     environment:
       PORT: 8080
       PGPT_PROFILES: local
