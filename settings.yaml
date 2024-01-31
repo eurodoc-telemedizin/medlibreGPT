@@ -35,7 +35,7 @@ ui:
 llm:
   mode: local
   # Should be matching the selected model
-  max_new_tokens: 512
+  max_new_tokens: 1000
   context_window: 3900
   tokenizer: mistralai/Mistral-7B-Instruct-v0.2
 
