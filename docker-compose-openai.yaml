@@ -1,0 +1,16 @@
+services:
+  medlibre-gpt-openai:
+    container_name: medlibre-gpt-openai
+    image: medlibre-gpt
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - 9001:9080
+    environment:
+      PORT: 9080
+      PGPT_PROFILES: openai
+      PGPT_MODE: openai
+      OPENAI_API_KEY: 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
