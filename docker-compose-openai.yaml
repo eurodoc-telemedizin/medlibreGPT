@@ -13,4 +13,4 @@ services:
       PORT: 9080
       PGPT_PROFILES: openai
       PGPT_MODE: openai
-      OPENAI_API_KEY: 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
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
