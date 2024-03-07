@@ -81,7 +81,7 @@ class DataSettings(BaseModel):
 
 
 class LLMSettings(BaseModel):
-    mode: Literal["local", "openai", "openailike", "sagemaker", "mock", "ollama"]
+    mode: Literal["llamacpp", "openai", "openailike", "sagemaker", "mock", "ollama"]
     max_new_tokens: int = Field(
         256,
         description="The maximum number of token that the LLM is authorized to generate in one completion.",
@@ -101,15 +101,12 @@ class LLMSettings(BaseModel):
 
 
 class VectorstoreSettings(BaseModel):
-    database: Literal["chroma", "qdrant"]
+    database: Literal["chroma", "qdrant", "pgvector"]
 
 
-class LocalSettings(BaseModel):
+class LlamaCPPSettings(BaseModel):
     llm_hf_repo_id: str
     llm_hf_model_file: str
-    embedding_hf_model_name: str = Field(
-        description="Name of the HuggingFace model to use for embeddings"
-    )
     prompt_style: Literal["default", "llama2", "tag", "mistral", "chatml"] = Field(
         "llama2",
         description=(
@@ -123,8 +120,14 @@ class LocalSettings(BaseModel):
     )
 
 
+class HuggingFaceSettings(BaseModel):
+    embedding_hf_model_name: str = Field(
+        description="Name of the HuggingFace model to use for embeddings"
+    )
+
+
 class EmbeddingSettings(BaseModel):
-    mode: Literal["local", "openai", "sagemaker", "mock"]
+    mode: Literal["huggingface", "openai", "sagemaker", "ollama", "mock"]
     ingest_mode: Literal["simple", "batch", "parallel"] = Field(
         "simple",
         description=(
@@ -173,9 +176,13 @@ class OllamaSettings(BaseModel):
         "http://localhost:11434",
         description="Base URL of Ollama API. Example: 'https://localhost:11434'.",
     )
-    model: str = Field(
+    llm_model: str = Field(
         None,
         description="Model to use. Example: 'llama2-uncensored'.",
+    )
+    embedding_model: str = Field(
+        None,
+        description="Model to use. Example: 'nomic-embed-text'.",
     )
 
 
@@ -194,6 +201,41 @@ class UISettings(BaseModel):
     )
     delete_all_files_button_enabled: bool = Field(
         False, description="If the button to delete all files is enabled or not."
+    )
+
+
+class PGVectorSettings(BaseModel):
+    host: str = Field(
+        "localhost",
+        description="The server hosting the Postgres database",
+    )
+    port: int = Field(
+        5432,
+        description="The port on which the Postgres database is accessible",
+    )
+    user: str = Field(
+        "postgres",
+        description="The user to use to connect to the Postgres database",
+    )
+    password: str = Field(
+        "postgres",
+        description="The password to use to connect to the Postgres database",
+    )
+    database: str = Field(
+        "postgres",
+        description="The database to use to connect to the Postgres database",
+    )
+    embed_dim: int = Field(
+        384,
+        description="The dimension of the embeddings stored in the Postgres database",
+    )
+    schema_name: str = Field(
+        "public",
+        description="The name of the schema in the Postgres database where the embeddings are stored",
+    )
+    table_name: str = Field(
+        "embeddings",
+        description="The name of the table in the Postgres database where the embeddings are stored",
     )
 
 
@@ -257,12 +299,14 @@ class Settings(BaseModel):
     ui: UISettings
     llm: LLMSettings
     embedding: EmbeddingSettings
-    local: LocalSettings
+    llamacpp: LlamaCPPSettings
+    huggingface: HuggingFaceSettings
     sagemaker: SagemakerSettings
     openai: OpenAISettings
     ollama: OllamaSettings
     vectorstore: VectorstoreSettings
     qdrant: QdrantSettings | None = None
+    pgvector: PGVectorSettings | None = None
 
 
 """

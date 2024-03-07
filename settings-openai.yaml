@@ -1,6 +1,12 @@
+server:
+  env_name: ${APP_ENV:openai}
+
 llm:
   mode: openai
 
+embedding:
+  mode: openai
+
 openai:
-  model: gpt-4-1106-preview # Optional model to use. Default is "gpt-3.5-turbo"
-                               # Note: Open AI Models are listed here: https://platform.openai.com/docs/models
+  api_key: ${OPENAI_API_KEY:}
+  model: gpt-3.5-turbo
