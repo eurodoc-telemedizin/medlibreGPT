@@ -4,8 +4,8 @@ server:
 llm:
   mode: llamacpp
   # Should be matching the selected model
-  max_new_tokens: 512
-  context_window: 3900
+  max_new_tokens: 4000
+  context_window: 8000
   tokenizer: mistralai/Mistral-7B-Instruct-v0.2
 
 llamacpp:
