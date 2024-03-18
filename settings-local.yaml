@@ -5,7 +5,7 @@ llm:
   mode: llamacpp
   # Should be matching the selected model
   max_new_tokens: 4000
-  context_window: 8000
+  context_window: 3900
   tokenizer: mistralai/Mistral-7B-Instruct-v0.2
 
 llamacpp:
