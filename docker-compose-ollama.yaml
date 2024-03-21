@@ -1,5 +1,5 @@
 services:
-  medlibre-gpt-openai:
+  medlibre-gpt-ollama:
     container_name: medlibre-gpt-ollama
     image: medlibre-gpt-openai-ollama
     tty: true
@@ -12,6 +12,7 @@ services:
     environment:
       PORT: 7080
       PGPT_PROFILES: ollama
+      PGPT_MODE: ollama
       PGPT_OLLAMA_API: http://65.108.254.239:11434
       PGPT_LLM_MODEL: meditron
       PGPT_EMBEDDING_MODEL: nomic-embed-text

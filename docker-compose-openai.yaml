@@ -1,7 +1,7 @@
 services:
   medlibre-gpt-openai:
     container_name: medlibre-gpt-openai
-    image: medlibre-gpt
+    image: medlibre-gpt-openai-ollama
     tty: true
     stdin_open: true
     build:
