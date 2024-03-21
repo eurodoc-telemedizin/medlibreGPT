@@ -1,0 +1,21 @@
+services:
+  medlibre-gpt-openai:
+    container_name: medlibre-gpt-ollama
+    image: medlibre-gpt-openai-ollama
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama_and_openai
+    ports:
+      - 7001:7080
+    environment:
+      PORT: 7080
+      PGPT_PROFILES: ollama
+      PGPT_OLLAMA_API: http://65.108.254.239:11434
+      PGPT_POSTGRES_HOST: ${PGPT_POSTGRES_HOST}
+      PGPT_POSTGRES_PORT: ${PGPT_POSTGRES_PORT}
+      PGPT_POSTGRES_USER: ${PGPT_POSTGRES_USER}
+      PGPT_POSTGRES_PASSWORD: ${PGPT_POSTGRES_PASSWORD}
+      PGPT_POSTGRES_DATABASE: ${PGPT_POSTGRES_DATABASE}
+      PGPT_POSTGRES_DATABASE_SCHEMA: ${PGPT_POSTGRES_DATABASE_SCHEMA}

@@ -6,7 +6,7 @@ services:
     stdin_open: true
     build:
       context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile.ollama_and_openai
     ports:
       - 9001:9080
     environment:

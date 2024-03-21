@@ -32,3 +32,11 @@ postgres:
   password: admin
   schema_name: private_gpt
 
+
+#postgres:
+#  host: ${PGPT_POSTGRES_HOST}
+#  port: ${PGPT_POSTGRES_PORT}
+#  database: ${PGPT_POSTGRES_DATABASE}
+#  user: ${PGPT_POSTGRES_USER}
+#  password: ${PGPT_POSTGRES_PASSWORD}
+#  schema_name: ${PGPT_POSTGRES_DATABASE_SCHEMA}
