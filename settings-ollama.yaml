@@ -11,8 +11,8 @@ embedding:
   mode: ollama
 
 ollama:
-  llm_model: mistral
-  embedding_model: nomic-embed-text
+  llm_model: ${PGPT_LLM_MODEL}
+  embedding_model: ${PGPT_EMBEDDING_MODEL}
   api_base: ${PGPT_OLLAMA_API}
   tfs_z: 1.0              # Tail free sampling is used to reduce the impact of less probable tokens from the output. A higher value (e.g., 2.0) will reduce the impact more, while a value of 1.0 disables this setting.
   top_k: 40               # Reduces the probability of generating nonsense. A higher value (e.g. 100) will give more diverse answers, while a lower value (e.g. 10) will be more conservative. (Default: 40)
