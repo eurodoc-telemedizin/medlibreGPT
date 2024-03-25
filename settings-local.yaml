@@ -7,7 +7,7 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 4000
   context_window: 8000
-  tokenizer: TheBloke/meditron-7B-GGUF
+  tokenizer: mistralai/Mistral-7B-Instruct-v0.2
 
 llamacpp:
   prompt_style: "mistral"
