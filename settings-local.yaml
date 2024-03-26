@@ -5,10 +5,10 @@ server:
 llm:
   mode: llamacpp
   # Should be matching the selected model
-  max_new_tokens: 4000
+  max_new_tokens: 5000
   context_window: 8000
   tokenizer: TheBloke/meditron-7B-GPTQ
-  temperature: 0.7
+  temperature: 0.2
 
 llamacpp:
   prompt_style: "default"
