@@ -5,8 +5,8 @@ server:
 llm:
   mode: llamacpp
   # Should be matching the selected model
-  max_new_tokens: 4000
-  context_window: 8000
+  max_new_tokens: 10000
+  context_window: 10000
   tokenizer: TheBloke/meditron-7B-GPTQ
 
 llamacpp:
