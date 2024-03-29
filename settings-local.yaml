@@ -10,7 +10,7 @@ llm:
   tokenizer: mistralai/Mixtral-8x7B-Instruct-v0.1
 
 llamacpp:
-  prompt_style: "mistral"
+  prompt_style: "default"
   llm_hf_repo_id: TheBloke/Mixtral-8x7B-v0.1-GGUF
   llm_hf_model_file: mixtral-8x7b-v0.1.Q4_K_M.gguf
 
