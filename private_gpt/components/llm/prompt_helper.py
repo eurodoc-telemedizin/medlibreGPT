@@ -184,8 +184,6 @@ class MistralPromptStyle(AbstractPromptStyle):
                 prompt += "</s>"
                 message_from_user = f"[INST] {content.strip()} [/INST]"
                 prompt += message_from_user
-
-        logger.info(f"****Mistral prompt message*** = {prompt}")
         return prompt
 
     def _completion_to_prompt(self, completion: str) -> str:
