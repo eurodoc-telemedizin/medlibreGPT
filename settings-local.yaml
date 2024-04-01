@@ -18,7 +18,7 @@ embedding:
   mode: huggingface
 
 huggingface:
-  embedding_hf_model_name: jinaai/jina-embeddings-v2-base-en
+  embedding_hf_model_name: jinaai/jina-embeddings-v2-base-de
 
 vectorstore:
   database: qdrant
