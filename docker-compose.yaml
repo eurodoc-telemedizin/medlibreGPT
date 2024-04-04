@@ -1,18 +1,16 @@
 services:
-  medlibre-gpt:
-    container_name: medlibre-gpt
-    image: medlibre-gpt
-    tty: true
-    stdin_open: true
+  private-gpt:
     build:
-      context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile.external
     volumes:
-      - ./local_data/:/home/app/local_data
-      - ./models/:/home/app/models
+      - ./local_data/:/home/worker/app/local_data
     ports:
       - 8001:8080
     environment:
       PORT: 8080
-      PGPT_PROFILES: local
-      PGPT_MODE: llamacpp
+      PGPT_PROFILES: docker
+      PGPT_MODE: ollama
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ./models:/root/.ollama
