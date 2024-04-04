@@ -1,0 +1,18 @@
+services:
+  medlibre-gpt:
+    container_name: medlibre-gpt
+    image: medlibre-gpt
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    volumes:
+      - ./local_data/:/home/app/local_data
+      - ./models/:/home/app/models
+    ports:
+      - 8001:8080
+    environment:
+      PORT: 8080
+      PGPT_PROFILES: local
+      PGPT_MODE: llamacpp
