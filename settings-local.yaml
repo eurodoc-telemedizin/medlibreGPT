@@ -15,11 +15,11 @@ llamacpp:
   llm_hf_repo_id: TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF
   llm_hf_model_file: mixtral-8x7b-instruct-v0.1.Q6_K.gguf
 
-#embedding:
-#  mode: huggingface
-#
-#huggingface:
-#  embedding_hf_model_name: jinaai/jina-embeddings-v2-base-de
+embedding:
+  mode: huggingface
+
+huggingface:
+  embedding_hf_model_name: BAAI/bge-large-en
 
 vectorstore:
   database: qdrant
