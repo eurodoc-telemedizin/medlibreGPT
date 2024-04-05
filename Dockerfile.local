@@ -23,7 +23,7 @@ FROM base as dependencies
 WORKDIR /home/app
 COPY pyproject.toml poetry.lock ./
 
-RUN poetry install --extras "ui embeddings-huggingface llms-llama-cpp vector-stores-qdrant llms-openai embeddings-openai"
+RUN poetry install --extras "ui embeddings-huggingface llms-llama-cpp vector-stores-qdrant llms-openai embeddings-openai rerank-sentence-transformers"
 
 FROM base as app
 
