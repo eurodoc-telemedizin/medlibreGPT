@@ -11,7 +11,7 @@ llm:
   temperature: 0.1      # The temperature of the model. Increasing the temperature will make the model answer more creatively. A value of 0.1 would be more factual. (Default: 0.1)
 
 llamacpp:
-  prompt_style: "mistral"
+  prompt_style: "default"
   llm_hf_repo_id: TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF
   llm_hf_model_file: mixtral-8x7b-instruct-v0.1.Q6_K.gguf
 
