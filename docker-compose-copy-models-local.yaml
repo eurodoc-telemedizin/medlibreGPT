@@ -6,7 +6,7 @@ services:
     stdin_open: true
     build:
       context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile_With_Models_Copy.local
     ports:
       - 8001:8080
     environment:
