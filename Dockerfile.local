@@ -7,6 +7,7 @@ RUN pip install pipx
 RUN python3 -m pipx ensurepath
 RUN pipx install poetry
 ENV PATH="/root/.local/bin:$PATH"
+ENV PATH=".venv/bin/:$PATH"
 
 # Dependencies to build llama-cpp
 RUN apt update && apt install -y \
@@ -41,4 +42,4 @@ COPY  private_gpt/ private_gpt
 COPY  fern/ fern
 COPY  *.yaml *.md ./
 
-ENTRYPOINT .venv/bin/python -m private_gpt
+ENTRYPOINT python -m private_gpt
