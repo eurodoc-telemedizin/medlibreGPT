@@ -5,14 +5,14 @@ server:
 llm:
   mode: llamacpp
   # Should be matching the selected model
-  max_new_tokens: 512
-  context_window: 3900
-  tokenizer: mistralai/Mistral-7B-Instruct-v0.2
+  max_new_tokens: 4096
+  context_window: 8000
+  tokenizer: mistralai/Mixtral-8x7B-Instruct-v0.1
   prompt_style: "mistral"
 
 llamacpp:
-  llm_hf_repo_id: TheBloke/Mistral-7B-Instruct-v0.2-GGUF
-  llm_hf_model_file: mistral-7b-instruct-v0.2.Q4_K_M.gguf
+  llm_hf_repo_id: TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF
+  llm_hf_model_file: mixtral-8x7b-instruct-v0.1.Q6_K.gguf
 
 embedding:
   mode: huggingface
