@@ -1,14 +1,14 @@
 services:
   medlibre-gpt2:
     container_name: medlibre-gpt2
-    image: medlibre-gpt2
+    image: medlibre-gpt
     tty: true
     stdin_open: true
     build:
       context: .
       dockerfile: Dockerfile.local
     volumes:
-      - ./local_data/:/home/app/local_data2
+      - ./local_data2/:/home/app/local_data2
       - ./models/:/home/app/models
     ports:
       - 5001:5080
