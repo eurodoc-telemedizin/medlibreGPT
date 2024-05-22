@@ -11,8 +11,8 @@ services:
       - ./local_data/:/home/app/local_data2
       - ./models/:/home/app/models
     ports:
-      - 6001:6080
+      - 5001:5080
     environment:
-      PORT: 6080
+      PORT: 5080
       PGPT_PROFILES: local2
       PGPT_MODE: llamacpp
