@@ -1,5 +1,5 @@
 services:
-  medlibre-gpt:
+  medlibre-gpt2:
     container_name: medlibre-gpt2
     image: medlibre-gpt
     tty: true
