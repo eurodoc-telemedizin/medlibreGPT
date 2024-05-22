@@ -1,6 +1,6 @@
 services:
   medlibre-gpt:
-    container_name: medlibre-gpt
+    container_name: medlibre-gpt2
     image: medlibre-gpt
     tty: true
     stdin_open: true
