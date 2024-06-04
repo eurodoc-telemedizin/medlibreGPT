@@ -14,8 +14,8 @@ services:
       PGPT_PROFILES: ollama
       PGPT_MODE: ollama
       PGPT_OLLAMA_API: http://65.108.254.239:11434
-      PGPT_LLM_MODEL: meditron
-      PGPT_EMBEDDING_MODEL: nomic-embed-text
+      PGPT_LLM_MODEL: mixtral:8x22b
+      PGPT_EMBEDDING_MODEL: mxbai-embed-large
       PGPT_POSTGRES_HOST: ${PGPT_POSTGRES_HOST}
       PGPT_POSTGRES_PORT: ${PGPT_POSTGRES_PORT}
       PGPT_POSTGRES_USER: ${PGPT_POSTGRES_USER}
