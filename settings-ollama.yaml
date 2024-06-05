@@ -3,9 +3,9 @@ server:
 
 llm:
   mode: ollama
-  max_new_tokens: 512
-  context_window: 3900
-  temperature: 0.1     #The temperature of the model. Increasing the temperature will make the model answer more creatively. A value of 0.1 would be more factual. (Default: 0.1)
+  max_new_tokens: 4096
+  context_window: 8000
+  temperature: 0.7     #The temperature of the model. Increasing the temperature will make the model answer more creatively. A value of 0.1 would be more factual. (Default: 0.1)
 
 embedding:
   mode: ollama
