@@ -2292,7 +2292,7 @@ llama-index-core = ">=0.10.1,<0.11.0"
 
 [[package]]
 name = "llama-index-llms-azure-openai"
-version = "0.1.5"
+version = "0.1.8"
 description = "llama-index llms azure openai integration"
 optional = true
 python-versions = ">=3.8.1,<4.0"
@@ -2338,7 +2338,7 @@ llama-index-core = ">=0.10.1,<0.11.0"
 
 [[package]]
 name = "llama-index-llms-openai"
-version = "0.1.6"
+version = "0.1.22"
 description = "llama-index llms openai integration"
 optional = true
 python-versions = ">=3.8.1,<4.0"
