@@ -8,11 +8,12 @@ services:
       context: .
       dockerfile: Dockerfile.local
     volumes:
-      - ./local_data/:/home/app/local_data
-      - ./models/:/home/app/models
+      - ./local_data/:/home/worker/app/local_data
+      - ./models/:/home/worker/app/models
     ports:
       - 8001:8080
     environment:
       PORT: 8080
       PGPT_PROFILES: local
       PGPT_MODE: llamacpp
+      POETRY_EXTRAS: rerank-sentence-transformers
