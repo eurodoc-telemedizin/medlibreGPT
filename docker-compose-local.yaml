@@ -16,4 +16,3 @@ services:
       PORT: 8080
       PGPT_PROFILES: local
       PGPT_MODE: llamacpp
-      POETRY_EXTRAS: rerank-sentence-transformers
