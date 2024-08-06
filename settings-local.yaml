@@ -8,7 +8,7 @@ llm:
   max_new_tokens: 512
   context_window: 3900
   tokenizer: epfl-llm/meditron-70b
-  prompt_style: "llama2"
+  prompt_style: "chatml"
 
 llamacpp:
   llm_hf_repo_id: TheBloke/meditron-70B-GGUF
