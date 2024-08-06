@@ -7,12 +7,12 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 512
   context_window: 3900
-  tokenizer: meta-llama/Meta-Llama-3.1-8B-Instruct
-  prompt_style: "llama3"
+  tokenizer: epfl-llm/meditron-70b
+  prompt_style: "chatml"
 
 llamacpp:
-  llm_hf_repo_id: lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF
-  llm_hf_model_file: Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+  llm_hf_repo_id: TheBloke/meditron-70B-GGUF
+  llm_hf_model_file: meditron-70b.Q3_K_M.gguf
 
 embedding:
   mode: huggingface
