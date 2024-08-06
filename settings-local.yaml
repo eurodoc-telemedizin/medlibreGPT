@@ -11,8 +11,8 @@ llm:
   prompt_style: "chatml"
 
 llamacpp:
-  llm_hf_repo_id: TheBloke/meditron-70B-GGUF
-  llm_hf_model_file: meditron-70b.Q3_K_M.gguf
+  llm_hf_repo_id: TheBloke/meditron-7B-GGUF
+  llm_hf_model_file: meditron-7b.Q4_K_M.gguf
 
 embedding:
   mode: huggingface
