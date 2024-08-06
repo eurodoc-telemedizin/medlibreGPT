@@ -18,3 +18,5 @@ services:
       PGPT_PROFILES: local
       PGPT_MODE: llamacpp
       HF_TOKEN: ${HF_TOKEN}
+    profiles:
+      - llamacpp-cpu
