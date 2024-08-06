@@ -11,8 +11,10 @@ services:
       - ./local_data/:/home/app/local_data
       - ./models/:/home/app/models
     ports:
-      - 8001:8080
+      - "8001:8080"
+    entrypoint: sh -c ".venv/bin/python scripts/setup && .venv/bin/python -m private_gpt"
     environment:
       PORT: 8080
       PGPT_PROFILES: local
       PGPT_MODE: llamacpp
+      HF_TOKEN: ${HF_TOKEN}
