@@ -7,12 +7,12 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 4096
   context_window: 8000
-  tokenizer: mistralai/Mistral-7B-Instruct-v0.2
+  tokenizer: BioMistral/BioMistral-7B
   prompt_style: "mistral"
 
 llamacpp:
-  llm_hf_repo_id: TheBloke/Mistral-7B-Instruct-v0.2-GGUF
-  llm_hf_model_file: mistral-7b-instruct-v0.2.Q4_K_M.gguf
+  llm_hf_repo_id: MaziyarPanahi/BioMistral-7B-GGUF
+  llm_hf_model_file: BioMistral-7B.Q4_K_M.gguf
 
 embedding:
   mode: huggingface
