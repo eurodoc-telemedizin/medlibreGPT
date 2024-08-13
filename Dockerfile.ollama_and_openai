@@ -3,7 +3,7 @@ FROM python:3.11.6-slim-bookworm as base
 # Install poetry
 RUN pip install pipx
 RUN python3 -m pipx ensurepath
-RUN pipx install poetry
+RUN pipx install poetry==1.8.3
 ENV PATH="/root/.local/bin:$PATH"
 ENV PATH=".venv/bin/:$PATH"
 
@@ -14,25 +14,38 @@ FROM base as dependencies
 WORKDIR /home/app
 COPY pyproject.toml poetry.lock ./
 
-RUN poetry install --extras "ui vector-stores-qdrant llms-openai embeddings-openai llms-ollama vector-stores-postgres embeddings-ollama storage-nodestore-postgres rerank-sentence-transformers"
+ARG POETRY_EXTRAS="ui vector-stores-qdrant llms-ollama embeddings-ollama llms-openai embeddings-openai"
+RUN poetry install --no-root --extras "${POETRY_EXTRAS}"
 
 FROM base as app
-
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8080
+ENV APP_ENV=prod
+ENV PYTHONPATH="$PYTHONPATH:/home/app/private_gpt/"
 EXPOSE 8080
 
 # Prepare a non-root user
+# More info about how to configure UIDs and GIDs in Docker:
+# https://github.com/systemd/systemd/blob/main/docs/UIDS-GIDS.md
+
+# Define the User ID (UID) for the non-root user
+# UID 100 is chosen to avoid conflicts with existing system users
+ARG UID=100
+
+# Define the Group ID (GID) for the non-root user
+# GID 65534 is often used for the 'nogroup' or 'nobody' group
+ARG GID=65534
+
+#RUN adduser --system --gid ${GID} --uid ${UID} --home /home/worker worker
 WORKDIR /home/app
 
+#RUN chown worker /home/worker/app
 RUN mkdir local_data
 RUN mkdir models
-COPY --from=dependencies /home/app/.venv/ .venv
+COPY --from=dependencies /home/worker/app/.venv/ .venv
 COPY private_gpt/ private_gpt
-COPY fern/ fern
-COPY *.yaml *.md ./
+COPY *.yaml .
 COPY scripts/ scripts
 
-ENV PYTHONPATH="$PYTHONPATH:/private_gpt/"
-
+#USER worker
 ENTRYPOINT python -m private_gpt
