@@ -14,5 +14,5 @@ services:
       PGPT_PROFILES: ollama
       PGPT_MODE: ollama
       PGPT_OLLAMA_API: http://176.9.101.2:11434
-      PGPT_OLLAMA_LLM_MODEL: mistral:7b
+      PGPT_OLLAMA_LLM_MODEL: mixtral:8x22b
       PGPT_OLLAMA_EMBEDDING_MODEL: nomic-embed-text
