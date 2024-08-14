@@ -17,3 +17,4 @@ services:
       PGPT_OLLAMA_LLM_MODEL: mixtral:8x7b
       PGPT_OLLAMA_EMBEDDING_MODEL: nomic-embed-text
       PGPT_OLLAMA_REQUEST_TIMEOUT: 600.0
+      LOCAL_INGESTION_ENABLED: true
