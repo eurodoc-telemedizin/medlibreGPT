@@ -6,7 +6,7 @@ services:
     stdin_open: true
     build:
       context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile.llamacpp-cpu
     volumes:
       - ./local_data2/:/home/app/local_data2
       - ./models/:/home/app/models
