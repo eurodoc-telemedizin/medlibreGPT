@@ -11,14 +11,14 @@ llm:
   prompt_style: "mistral"
 
 llamacpp:
-  llm_hf_repo_id: TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF
-  llm_hf_model_file: mixtral-8x7b-instruct-v0.1.Q6_K.gguf
+  llm_hf_repo_id: internistai/base-7b-v0.2-Q4_K_M-GGUF
+  llm_hf_model_file: base-7b-v0.2-q4_k_m.gguf
 
 embedding:
   mode: huggingface
 
 huggingface:
-  embedding_hf_model_name: BAAI/bge-m3
+  embedding_hf_model_name: nomic-ai/nomic-embed-text-v1.5
 
 vectorstore:
   database: qdrant

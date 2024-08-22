@@ -11,8 +11,11 @@ services:
       - ./local_data2/:/home/app/local_data2
       - ./models/:/home/app/models
     ports:
-      - 5001:5080
+      - "5001:5080"
+    entrypoint: sh -c ".venv/bin/python scripts/setup && .venv/bin/python -m private_gpt"
     environment:
       PORT: 5080
-      PGPT_PROFILES: local2
+      PGPT_PROFILES: local
       PGPT_MODE: llamacpp
+      HF_TOKEN: ${HF_TOKEN}
+      LOCAL_INGESTION_ENABLED: true
