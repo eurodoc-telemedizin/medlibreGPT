@@ -7,13 +7,12 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 4096
   context_window: 8000
-  tokenizer: internistai/base-7b-v0.2
+  tokenizer: mistralai/Mixtral-8x7B-Instruct-v0.1
   prompt_style: "mistral"
 
 llamacpp:
   llm_hf_repo_id: internistai/base-7b-v0.2-Q4_K_M-GGUF
   llm_hf_model_file: base-7b-v0.2-q4_k_m.gguf
-
 
 embedding:
   mode: huggingface
