@@ -16,7 +16,7 @@ services:
       PGPT_PROFILES: ollama
       PGPT_MODE: ollama
       PGPT_OLLAMA_API: http://176.9.101.2:11434
-      PGPT_OLLAMA_LLM_MODEL: taozhiyuai/openbiollm-llama-3:70b_q2_k
+      PGPT_OLLAMA_LLM_MODEL: mixtral:8x7b
       PGPT_OLLAMA_EMBEDDING_MODEL: nomic-embed-text
       PGPT_OLLAMA_REQUEST_TIMEOUT: 600.0
       LOCAL_INGESTION_ENABLED: true
