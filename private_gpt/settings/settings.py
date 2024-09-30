@@ -136,19 +136,19 @@ class LLMSettings(BaseModel):
         0.1,
         description="The temperature of the model. Increasing the temperature will make the model answer more creatively. A value of 0.1 would be more factual.",
     )
-    prompt_style: Literal[
-        "default", "llama2", "llama3", "tag", "mistral", "chatml"
-    ] = Field(
-        "llama2",
-        description=(
-            "The prompt style to use for the chat engine. "
-            "If `default` - use the default prompt style from the llama_index. It should look like `role: message`.\n"
-            "If `llama2` - use the llama2 prompt style from the llama_index. Based on `<s>`, `[INST]` and `<<SYS>>`.\n"
-            "If `llama3` - use the llama3 prompt style from the llama_index."
-            "If `tag` - use the `tag` prompt style. It should look like `<|role|>: message`. \n"
-            "If `mistral` - use the `mistral prompt style. It shoudl look like <s>[INST] {System Prompt} [/INST]</s>[INST] { UserInstructions } [/INST]"
-            "`llama2` is the historic behaviour. `default` might work better with your custom models."
-        ),
+    prompt_style: Literal["default", "llama2", "llama3", "tag", "mistral", "chatml"] = (
+        Field(
+            "llama2",
+            description=(
+                "The prompt style to use for the chat engine. "
+                "If `default` - use the default prompt style from the llama_index. It should look like `role: message`.\n"
+                "If `llama2` - use the llama2 prompt style from the llama_index. Based on `<s>`, `[INST]` and `<<SYS>>`.\n"
+                "If `llama3` - use the llama3 prompt style from the llama_index."
+                "If `tag` - use the `tag` prompt style. It should look like `<|role|>: message`. \n"
+                "If `mistral` - use the `mistral prompt style. It shoudl look like <s>[INST] {System Prompt} [/INST]</s>[INST] { UserInstructions } [/INST]"
+                "`llama2` is the historic behaviour. `default` might work better with your custom models."
+            ),
+        )
     )
 
 
@@ -197,7 +197,14 @@ class HuggingFaceSettings(BaseModel):
 
 class EmbeddingSettings(BaseModel):
     mode: Literal[
-        "huggingface", "openai", "azopenai", "sagemaker", "ollama", "mock", "gemini"
+        "huggingface",
+        "openai",
+        "azopenai",
+        "sagemaker",
+        "ollama",
+        "mock",
+        "gemini",
+        "mistralai",
     ]
     ingest_mode: Literal["simple", "batch", "parallel", "pipeline"] = Field(
         "simple",
@@ -350,6 +357,10 @@ class AzureOpenAISettings(BaseModel):
 class UISettings(BaseModel):
     enabled: bool
     path: str
+    default_mode: Literal["RAG", "Search", "Basic", "Summarize"] = Field(
+        "RAG",
+        description="The default mode.",
+    )
     default_chat_system_prompt: str = Field(
         None,
         description="The default system prompt to use for the chat mode.",

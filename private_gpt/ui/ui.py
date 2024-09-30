@@ -1,4 +1,5 @@
 """This file should be imported if and only if you want to run the UI locally."""
+
 import base64
 import logging
 import time
@@ -99,8 +100,11 @@ class PrivateGptUi:
         self._selected_filename = None
 
         # Initialize system prompt based on default mode
-        self.mode = MODES[0]
-        self._system_prompt = self._get_default_system_prompt(self.mode)
+        default_mode_map = {mode.value: mode for mode in Modes}
+        self._default_mode = default_mode_map.get(
+            settings().ui.default_mode, Modes.RAG_MODE
+        )
+        self._system_prompt = self._get_default_system_prompt(self._default_mode)
 
     def _chat(
         self, message: str, history: list[list[str]], mode: Modes, *_: Any
@@ -390,7 +394,7 @@ class PrivateGptUi:
 
             with gr.Row(equal_height=False):
                 with gr.Column(scale=3):
-                    default_mode = MODES[0]
+                    default_mode = self._default_mode
                     mode = gr.Radio(
                         [mode.value for mode in MODES],
                         label="Mode",
