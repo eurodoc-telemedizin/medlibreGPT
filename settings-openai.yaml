@@ -9,4 +9,4 @@ embedding:
 
 openai:
   api_key: ${OPENAI_API_KEY:}
-  model: o1-preview
+  model: gpt-4o
