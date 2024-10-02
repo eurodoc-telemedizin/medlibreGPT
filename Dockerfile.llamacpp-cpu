@@ -21,7 +21,7 @@ RUN apt update && apt install -y \
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 
 FROM base AS dependencies
-WORKDIR /home/worker/app
+WORKDIR /home/app
 COPY pyproject.toml poetry.lock ./
 
 ARG POETRY_EXTRAS="ui embeddings-huggingface llms-llama-cpp vector-stores-qdrant"
@@ -32,7 +32,7 @@ FROM base AS app
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8080
 ENV APP_ENV=prod
-ENV PYTHONPATH="$PYTHONPATH:/home/worker/app/private_gpt/"
+ENV PYTHONPATH="$PYTHONPATH:/home/app/private_gpt/"
 EXPOSE 8080
 
 # Prepare a non-root user
@@ -47,16 +47,16 @@ ARG UID=100
 # GID 65534 is often used for the 'nogroup' or 'nobody' group
 ARG GID=65534
 
-RUN adduser --system --gid ${GID} --uid ${UID} --home /home/worker worker
-WORKDIR /home/worker/app
+#RUN adduser --system --gid ${GID} --uid ${UID} --home /home/app worker
+WORKDIR /home/app
 
-RUN chown worker /home/worker/app
-RUN mkdir local_data && chown worker local_data
-RUN mkdir models && chown worker models
-COPY --chown=worker --from=dependencies /home/worker/app/.venv/ .venv
-COPY --chown=worker private_gpt/ private_gpt
-COPY --chown=worker *.yaml ./
-COPY --chown=worker scripts/ scripts
+#RUN chown worker /home/app
+RUN mkdir local_data
+RUN mkdir models
+COPY  --from=dependencies /home/app/.venv/ .venv
+COPY  private_gpt/ private_gpt
+COPY  *.yaml ./
+COPY  scripts/ scripts
 
-USER worker
+#USER worker
 ENTRYPOINT python -m private_gpt
