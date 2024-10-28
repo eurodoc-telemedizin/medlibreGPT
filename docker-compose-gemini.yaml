@@ -1,6 +1,6 @@
 services:
-  medlibre-gpt-openai:
-    container_name: medlibre-gpt-openai
+  medlibre-gpt-gemini:
+    container_name: medlibre-gpt-gemini
     image: medlibre-gpt-online
     tty: true
     stdin_open: true
@@ -8,10 +8,9 @@ services:
       context: .
       dockerfile: Dockerfile.online_versions
     ports:
-      - 9001:9080
+      - 6001:9080
     environment:
-      PORT: 9080
-      PGPT_PROFILES: openai
-      PGPT_MODE: openai
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      PORT: 6080
+      PGPT_PROFILES: gemini
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
       LOCAL_INGESTION_ENABLED: true

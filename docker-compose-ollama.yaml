@@ -1,12 +1,12 @@
 services:
   medlibre-gpt-ollama:
     container_name: medlibre-gpt-ollama
-    image: medlibre-gpt-openai-ollama
+    image: medlibre-gpt-online
     tty: true
     stdin_open: true
     build:
       context: .
-      dockerfile: Dockerfile.ollama_and_openai
+      dockerfile: Dockerfile.online_versions
     volumes:
       - ./local_data/:/home/app/local_data
     ports:
