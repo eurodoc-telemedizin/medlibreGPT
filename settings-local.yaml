@@ -7,7 +7,7 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 4096
   context_window: 8000
-  tokenizer: mistralai/Mixtral-8x7B-Instruct-v0.1
+  tokenizer: TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF
   prompt_style: "mistral"
 
 llamacpp:
