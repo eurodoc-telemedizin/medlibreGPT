@@ -47,6 +47,8 @@ if settings().llm.tokenizer:
         pretrained_model_name_or_path=settings().llm.tokenizer,
         cache_dir=models_cache_path,
         token=settings().huggingface.access_token,
+        use_fast=True,
+        force_download=True,
     )
     print("Tokenizer downloaded!")
 
