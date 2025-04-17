@@ -7,7 +7,7 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 4096
   context_window: 8000
-  tokenizer: lmstudio-community/Llama-4-Scout-17B-16E-Instruct-GGUF
+  tokenizer: meta-llama/Llama-4-Scout-17B-16E-Instruct
   prompt_style: "llama3"
 
 llamacpp:
