@@ -17,7 +17,7 @@ llamacpp:
   top_p: 0.95
   repeat_penalty: 1.1
   n_threads: 12        # Adjust based on your CPU
-  n_gpu_layers: 35     # Adjust based on your available GPU VRAM; set to 0 if CPU-only
+  n_gpu_layers: 0     # Adjust based on your available GPU VRAM; set to 0 if CPU-only
 
 embedding:
   mode: huggingface
