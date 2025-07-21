@@ -7,12 +7,17 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 4096
   context_window: 8000
-  tokenizer: meta-llama/Llama-3.1-8B-Instruct
-  prompt_style: "llama3"
+  tokenizer: meta-llama/Llama-2-70b-chat-hf
+  prompt_style: "chatml"
 
 llamacpp:
-  llm_hf_repo_id: lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF
-  llm_hf_model_file: Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+  llm_hf_repo_id: TheBloke/meditron-70B-GGUF
+  llm_hf_model_file: meditron-70b.Q4_K_S.gguf
+  temperature: 0.7
+  top_p: 0.95
+  repeat_penalty: 1.1
+  n_threads: 12        # Adjust based on your CPU
+  n_gpu_layers: 35     # Adjust based on your available GPU VRAM; set to 0 if CPU-only
 
 embedding:
   mode: huggingface
