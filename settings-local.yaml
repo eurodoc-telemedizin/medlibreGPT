@@ -7,7 +7,7 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 4096
   context_window: 8000
-  tokenizer: google/medgemma-27b-text-it
+  tokenizer: meta-llama/Llama-2-70b-chat-hf
   prompt_style: "chatml"
 
 llamacpp:
