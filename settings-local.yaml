@@ -12,7 +12,7 @@ llm:
 
 llamacpp:
   llm_hf_repo_id: unsloth/medgemma-27b-text-it-GGUF
-  llm_hf_model_file: medgemma-27b-text-it.Q4_K_S.gguf
+  llm_hf_model_file: medgemma-27b-text-it-Q4_K_S.gguf
   temperature: 0.7
   top_p: 0.95
   repeat_penalty: 1.1
