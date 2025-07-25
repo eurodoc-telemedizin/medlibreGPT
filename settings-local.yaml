@@ -7,12 +7,12 @@ llm:
   # Should be matching the selected model
   max_new_tokens: 4096
   context_window: 8000
-  tokenizer: meta-llama/Llama-2-70b-chat-hf
-  prompt_style: "chatml"
+  tokenizer: mistralai/Mixtral-8x7B-Instruct-v0.1
+  prompt_style: "mistral"
 
 llamacpp:
-  llm_hf_repo_id: unsloth/medgemma-27b-text-it-GGUF
-  llm_hf_model_file: medgemma-27b-text-it-Q4_K_S.gguf
+  llm_hf_repo_id: TheBloke/Mixtral-8x7B-v0.1-GGUF
+  llm_hf_model_file: mixtral-8x7b-v0.1.Q6_K.gguf
   temperature: 0.7
   top_p: 0.95
   repeat_penalty: 1.1
