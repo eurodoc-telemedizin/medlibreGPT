@@ -2,15 +2,30 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: PrivateGPT
+title: MedlibreGPT
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
 type: software
 authors:
-  - name: Zylon by PrivateGPT
+  - name: Fork of PrivateGPT
     address: hello@zylon.ai
-    website: 'https://www.zylon.ai/'
-repository-code: 'https://github.com/zylon-ai/private-gpt'
+    website: 'https://eurodoc.healthcare'
+    city: Wien
+    post-code: '1080'
+    email: mtruppe@eurodoc.at
+    tel: 04314089500
+    country: AT
+    orcid: 'https://orcid.org/0000-0002-1816-2329'
+repository-code: 'https://github.com/eurodoc-telemedizin'
+url: 'https://eurodoc.healthcare'
+abstract: >-
+  MedlibreGPT: An open-source artificial intelligence
+  platform that synthesizes diverse patient data formats,
+  specialized medical literature, and blockchain security
+  protocols to deliver personalized clinical decision
+  support while maintaining strict privacy compliance.
 license: Apache-2.0
-date-released: '2023-05-02'
+version: '0.1'
+date-released: '2025-08-01'
+
