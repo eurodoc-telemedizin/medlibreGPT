@@ -9,7 +9,6 @@ message: >-
 type: software
 authors:
   - name: Fork of PrivateGPT
-    address: hello@zylon.ai
     website: 'https://eurodoc.healthcare'
     city: Wien
     post-code: '1080'
