@@ -22,6 +22,10 @@ llamacpp:
   stop: ["</s>", "[/INST]", "<|eot_id|>"]
   add_bos_token: true
 
+rag:
+  prompt:
+    instruction: ""   # or remove this node entirely
+
 
 embedding:
   mode: huggingface
