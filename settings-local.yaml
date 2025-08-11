@@ -14,13 +14,10 @@ llamacpp:
   llm_hf_model_file: mixtral-8x7b-v0.1.Q6_K.gguf
   # Ensure the runtime knows the chat format if GGUF lacks a template:
   chat_format: mistral-instruct
-  n_ctx: 8192
-  # Good defaults (tune to your hardware):
-  n_threads: 8
-  n_gpu_layers: 0              # set >0 if you have GPU offload
-  # Make sure generation stops cleanly:
-  stop: ["</s>", "[/INST]", "<|eot_id|>"]
   add_bos_token: true
+  n_ctx: 8192
+  stop: [ "[/INST]", "</s>", "<|eot_id|>" ]
+
 
 rag:
   prompt:
