@@ -22,6 +22,7 @@ llamacpp:
 rag:
   prompt:
     instruction: ""   # or remove this node entirely
+    context_header: ""
 
 
 embedding:
