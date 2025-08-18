@@ -9,4 +9,4 @@ embedding:
 
 openai:
   api_key: ${OPENAI_API_KEY:}
-  model: o3-2025-04-16
+  model: gpt-5
