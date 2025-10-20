@@ -29,7 +29,7 @@ embedding:
   mode: huggingface
 
 huggingface:
-  embedding_hf_model_name: nomic-ai/nomic-embed-text-v1.5
+  embedding_hf_model_name: ibm-granite/granite-embedding-107m-multilingual
 
 vectorstore:
   database: qdrant
