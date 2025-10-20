@@ -11,7 +11,7 @@ llm:
 
 llamacpp:
   llm_hf_repo_id: TheBloke/Mixtral-8x7B-v0.1-GGUF
-  llm_hf_model_file: mixtral-8x7b-v0.1.Q6_K.gguf
+  llm_hf_model_file: mixtral-8x7b-v0.1.Q3_K_M.gguf
   # Ensure the runtime knows the chat format if GGUF lacks a template:
   chat_format: mistral-instruct
   add_bos_token: true
@@ -29,7 +29,7 @@ embedding:
   mode: huggingface
 
 huggingface:
-  embedding_hf_model_name: ibm-granite/granite-embedding-107m-multilingual
+  embedding_hf_model_name: nomic-ai/nomic-embed-text-v1.5
 
 vectorstore:
   database: qdrant
