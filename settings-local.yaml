@@ -35,6 +35,6 @@ vectorstore:
   database: qdrant
 
 qdrant:
-  url: ${QDRANT_API_KEY}
+  url: ${QDRANT_URL}
   https: ${QDRANT_HTTPS_FLAG}
-  api_key: ${QDRANT_URL}
+  api_key: ${QDRANT_API_KEY}
