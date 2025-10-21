@@ -10,3 +10,6 @@ embedding:
 openai:
   api_key: ${OPENAI_API_KEY:}
   model: gpt-5
+
+qdrant:
+  path: local_data/private_gpt/qdrant
