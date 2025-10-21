@@ -18,4 +18,7 @@ services:
       PGPT_PROFILES: local
       PGPT_MODE: llamacpp
       HF_TOKEN: ${HF_TOKEN}
+      QDRANT_API_KEY: ${QDRANT_API_KEY}
+      QDRANT_URL: ${QDRANT_URL}
+      QDRANT_HTTPS_FLAG: true
       LOCAL_INGESTION_ENABLED: true
