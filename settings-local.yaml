@@ -35,5 +35,8 @@ vectorstore:
   database: qdrant
 
 qdrant:
+  #path: local_data/private_gpt/qdrant
+  #location: str
   url: https://8ca89023-7b88-4940-9d0f-7e5c67b252dd.europe-west3-0.gcp.cloud.qdrant.io
+  https: true
   api_key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.y1DjuUY9NKE3E9tXE3i86Q9uRf04qkeaMetT9s3nde0

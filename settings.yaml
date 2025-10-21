@@ -108,8 +108,8 @@ milvus:
   collection_name: milvus_db
   overwrite: false
 
-qdrant:
-  path: local_data/private_gpt/qdrant
+#qdrant:
+  #path: local_data/private_gpt/qdrant
 
 postgres:
   host: localhost
