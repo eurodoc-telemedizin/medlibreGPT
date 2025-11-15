@@ -382,6 +382,8 @@ class PrivateGptUi:
             "#component-0, #component-3, #component-10, #component-8  { height: 100% !important; }"
             "#chatbot { flex-grow: 1 !important; overflow: auto !important;}"
             "#col { height: calc(100vh - 112px - 16px) !important; }"
+            "#shared-chat-iframe { width: 100% !important; height: 100% !important; }"
+            "#shared-chat-iframe iframe { width: 100% !important; height: calc(100vh - 200px) !important; min-height: 600px !important; border: none !important; }"
             "hr { margin-top: 1em; margin-bottom: 1em; border: 0; border-top: 1px solid #FFF; }"
             ".avatar-image { background-color: antiquewhite; border-radius: 2px; }"
             ".footer { text-align: center; margin-top: 20px; font-size: 14px; display: flex; align-items: center; justify-content: center; }"
@@ -546,20 +548,32 @@ class PrivateGptUi:
                     else:
                         label_text = f"LLM: {settings().llm.mode}"
 
-                    _ = gr.ChatInterface(
-                        self._chat,
-                        chatbot=gr.Chatbot(
-                            label=label_text,
-                            show_copy_button=True,
-                            elem_id="chatbot",
-                            render=False,
-                            avatar_images=(
-                                None,
-                                AVATAR_BOT,
-                            ),
-                        ),
-                        additional_inputs=[mode, upload_button, system_prompt_input],
-                    )
+                    with gr.Tabs():
+                        with gr.Tab("Chat"):
+                            _ = gr.ChatInterface(
+                                self._chat,
+                                chatbot=gr.Chatbot(
+                                    label=label_text,
+                                    show_copy_button=True,
+                                    elem_id="chatbot",
+                                    render=False,
+                                    avatar_images=(
+                                        None,
+                                        AVATAR_BOT,
+                                    ),
+                                ),
+                                additional_inputs=[mode, upload_button, system_prompt_input],
+                            )
+
+                        with gr.Tab("Shared Chat"):
+                            gr.HTML(
+                                '''<iframe
+                                    src="http://65.108.254.239:9380/next-chats/share?shared_id=0725b6bec0ce11f0a2490242ac12000e&from=chat&auth=unNSJlsgtPZNhq-qMEz63LyU4Ym0gBUR"
+                                    style="width: 100%; height: 800px; min-height: 600px; border: none;"
+                                    frameborder="0"
+                                ></iframe>''',
+                                elem_id="shared-chat-iframe"
+                            )
 
             with gr.Row():
                 avatar_byte = AVATAR_BOT.read_bytes()
