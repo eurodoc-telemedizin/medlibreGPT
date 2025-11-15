@@ -548,32 +548,51 @@ class PrivateGptUi:
                     else:
                         label_text = f"LLM: {settings().llm.mode}"
 
-                    with gr.Tabs():
-                        with gr.Tab("Chat"):
-                            _ = gr.ChatInterface(
-                                self._chat,
-                                chatbot=gr.Chatbot(
-                                    label=label_text,
-                                    show_copy_button=True,
-                                    elem_id="chatbot",
-                                    render=False,
-                                    avatar_images=(
-                                        None,
-                                        AVATAR_BOT,
+                    # If shared chat iframe URL is configured, show tabs
+                    # Otherwise, show the chat interface directly
+                    shared_chat_url = settings().ui.shared_chat_iframe_url
+                    if shared_chat_url:
+                        with gr.Tabs():
+                            with gr.Tab("Chat"):
+                                _ = gr.ChatInterface(
+                                    self._chat,
+                                    chatbot=gr.Chatbot(
+                                        label=label_text,
+                                        show_copy_button=True,
+                                        elem_id="chatbot",
+                                        render=False,
+                                        avatar_images=(
+                                            None,
+                                            AVATAR_BOT,
+                                        ),
                                     ),
-                                ),
-                                additional_inputs=[mode, upload_button, system_prompt_input],
-                            )
+                                    additional_inputs=[mode, upload_button, system_prompt_input],
+                                )
 
-                        with gr.Tab("Shared Chat"):
-                            gr.HTML(
-                                '''<iframe
-                                    src="http://65.108.254.239:9380/next-chats/share?shared_id=0725b6bec0ce11f0a2490242ac12000e&from=chat&auth=unNSJlsgtPZNhq-qMEz63LyU4Ym0gBUR"
-                                    style="width: 100%; height: 800px; min-height: 600px; border: none;"
-                                    frameborder="0"
-                                ></iframe>''',
-                                elem_id="shared-chat-iframe"
-                            )
+                            with gr.Tab("Shared Chat"):
+                                gr.HTML(
+                                    f'''<iframe
+                                        src="{shared_chat_url}"
+                                        style="width: 100%; height: 800px; min-height: 600px; border: none;"
+                                        frameborder="0"
+                                    ></iframe>''',
+                                    elem_id="shared-chat-iframe"
+                                )
+                    else:
+                        _ = gr.ChatInterface(
+                            self._chat,
+                            chatbot=gr.Chatbot(
+                                label=label_text,
+                                show_copy_button=True,
+                                elem_id="chatbot",
+                                render=False,
+                                avatar_images=(
+                                    None,
+                                    AVATAR_BOT,
+                                ),
+                            ),
+                            additional_inputs=[mode, upload_button, system_prompt_input],
+                        )
 
             with gr.Row():
                 avatar_byte = AVATAR_BOT.read_bytes()

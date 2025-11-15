@@ -45,6 +45,11 @@ ui:
     any unnecessary information or repetition.
   delete_file_button_enabled: true
   delete_all_files_button_enabled: true
+  # URL for shared chat iframe. Leave empty to disable the "Shared Chat" tab.
+  # IMPORTANT: If your UI is served over HTTPS, this URL must also use HTTPS to avoid mixed content blocking.
+  # Configure your reverse proxy to proxy the RAGFlow URL via HTTPS, for example:
+  # shared_chat_iframe_url: "https://smile.wien/ragflow/next-chats/share?shared_id=0725b6bec0ce11f0a2490242ac12000e&from=chat&auth=unNSJlsgtPZNhq-qMEz63LyU4Ym0gBUR"
+  shared_chat_iframe_url: "http://65.108.254.239:9380/next-chats/share?shared_id=0725b6bec0ce11f0a2490242ac12000e&from=chat&auth=unNSJlsgtPZNhq-qMEz63LyU4Ym0gBUR"
 
 llm:
   mode: llamacpp

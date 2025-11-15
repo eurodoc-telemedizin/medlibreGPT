@@ -378,6 +378,10 @@ class UISettings(BaseModel):
     delete_all_files_button_enabled: bool = Field(
         False, description="If the button to delete all files is enabled or not."
     )
+    shared_chat_iframe_url: str = Field(
+        None,
+        description="URL for the shared chat iframe. If set, a 'Shared Chat' tab will be displayed with an embedded iframe. IMPORTANT: Must use HTTPS if the UI is served over HTTPS to avoid mixed content blocking.",
+    )
 
 
 class RerankSettings(BaseModel):
